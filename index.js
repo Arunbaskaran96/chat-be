@@ -42,9 +42,7 @@ const app = server.listen(8000, () => {
 import { Server } from "socket.io";
 const io = new Server(app, {
   pingTimeout: 60000,
-  cors: {
-    origin: "http://localhost:5173",
-  },
+  cors: {},
 });
 
 // io.on("connection", (socket) => {
