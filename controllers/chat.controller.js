@@ -178,3 +178,23 @@ export const removeFromGroup = async (req, res, next) => {
     next(error);
   }
 };
+
+export const groupchatedit = async (req, res, next) => {
+  try {
+    const isChat = await chatmodel.findById(req.params.id);
+    if (isChat) {
+      const updatedChat = await chatmodel.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      );
+      res.status(200).json(updatedChat);
+    } else {
+      next(errorHandler(400, "no chat is found"));
+    }
+  } catch (error) {
+    next(error);
+  }
+};

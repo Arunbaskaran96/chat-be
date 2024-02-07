@@ -6,6 +6,7 @@ import {
   renameGroup,
   addToGroup,
   removeFromGroup,
+  groupchatedit,
 } from "../controllers/chat.controller.js";
 import { verifyUser } from "../utils/verifyAuth.js";
 const router = express.Router();
@@ -16,4 +17,5 @@ router.get("/fetchchats", verifyUser, fetchChats);
 router.put("/rename-group/:id", verifyUser, renameGroup);
 router.put("/addgroup/:id", verifyUser, addToGroup);
 router.put("/removegroup/:id", verifyUser, removeFromGroup);
+router.put("/groupchatedit/:id", verifyUser, groupchatedit);
 export default router;
